@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +25,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOq-Pr-fqH" userLabel="Menu Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IOq-Pr-fqH" userLabel="Menu Button">
                                         <rect key="frame" x="337" y="34.333333333333336" width="30" height="45.000000000000007"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <state key="normal" title="+"/>
@@ -33,21 +34,27 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerY" secondItem="7Lr-a6-pgK" secondAttribute="centerY" priority="750" id="ML0-7M-cQe"/>
+                                    <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerY" secondItem="7Lr-a6-pgK" secondAttribute="centerY" multiplier="2 / 3" priority="745" id="15S-IA-2Y0"/>
+                                    <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerY" secondItem="7Lr-a6-pgK" secondAttribute="centerY" priority="750" identifier="Title Center Y" id="ML0-7M-cQe"/>
                                     <constraint firstItem="IOq-Pr-fqH" firstAttribute="centerY" secondItem="OVl-Vy-Hss" secondAttribute="centerY" id="NcL-NH-gxp"/>
                                     <constraint firstItem="OVl-Vy-Hss" firstAttribute="centerX" secondItem="7Lr-a6-pgK" secondAttribute="centerX" id="PlC-5c-Tdx"/>
                                     <constraint firstAttribute="height" constant="80" id="vCC-PK-uyy"/>
                                     <constraint firstAttribute="trailing" secondItem="IOq-Pr-fqH" secondAttribute="trailing" constant="8" id="yNV-0i-Atf"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="15S-IA-2Y0"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tdH-ZN-xEy" customClass="TableView" customModule="PackingList" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="80" width="375" height="698"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="CbD-QP-Lae">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CbD-QP-Lae" id="YBH-Qu-lpc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
@@ -57,6 +64,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="YDn-pZ-Klm"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="7Lr-a6-pgK" firstAttribute="leading" secondItem="YDn-pZ-Klm" secondAttribute="leading" id="LX1-zk-75g"/>
@@ -68,11 +76,14 @@
                             <constraint firstItem="YDn-pZ-Klm" firstAttribute="trailing" secondItem="tdH-ZN-xEy" secondAttribute="trailing" id="pYn-Yu-oqd"/>
                             <constraint firstItem="tdH-ZN-xEy" firstAttribute="leading" secondItem="YDn-pZ-Klm" secondAttribute="leading" id="zlQ-ls-pJL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="YDn-pZ-Klm"/>
                     </view>
                     <connections>
                         <outlet property="menuButton" destination="IOq-Pr-fqH" id="Pu7-iQ-wcj"/>
+                        <outlet property="menuHeightConstraint" destination="vCC-PK-uyy" id="VOP-jg-nrP"/>
+                        <outlet property="menuItemTrilingConstraint" destination="yNV-0i-Atf" id="VU2-SJ-oFT"/>
                         <outlet property="tableView" destination="tdH-ZN-xEy" id="JzZ-jq-73Q"/>
+                        <outlet property="titleCenterYClosedConstraint" destination="ML0-7M-cQe" id="MXV-Xx-JEv"/>
+                        <outlet property="titleCenterYOpenConstrint" destination="15S-IA-2Y0" id="bt1-DW-kve"/>
                         <outlet property="titleLabel" destination="OVl-Vy-Hss" id="KYJ-17-5qZ"/>
                     </connections>
                 </viewController>
@@ -81,4 +92,9 @@
             <point key="canvasLocation" x="-425" y="135"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
